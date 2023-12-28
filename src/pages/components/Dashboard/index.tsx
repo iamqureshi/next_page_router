@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-
-export default function DashboardPage({ posts }:any) {
-
+export default function DashboardPage({ posts }: any) {
   console.log(posts, "---");
   return <h2>hello dashboard</h2>;
 }
