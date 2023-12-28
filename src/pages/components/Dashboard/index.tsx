@@ -1,13 +1,13 @@
-export default function DashboardPage({posts }:any) {
-  console.log("from Dashboard Page", posts);
+import { useEffect } from "react";
 
-  return <h2>hello dashboard - {JSON.stringify(posts) }</h2>;
+export default function DashboardPage({ posts }:any) {
+  
+  console.log(posts);
+  return <h2>hello dashboard</h2>;
 }
 
-export async function getStaticProps() {
-  console.log("from getStaticProps from dashboard page");
-
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+export async function getServerSideProps() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const posts = await res.json();
 
   return {
