@@ -1,7 +1,7 @@
-export default function DashboardPage(props: { posts: any }) {
-  console.log("from Dashboard Page", props.posts);
+export default function DashboardPage({posts }:any) {
+  console.log("from Dashboard Page", posts);
 
-  return <h2>hello dashboard</h2>;
+  return <h2>hello dashboard - {JSON.stringify(posts) }</h2>;
 }
 
 export async function getStaticProps() {
