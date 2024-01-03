@@ -1,8 +1,10 @@
+import DashboardTable from "./DashboardTable/DashboardTable";
 
-export default function DashboardPage(props:any) {
+export default function DashboardPage() {
+  
   return (
     <>
-      <h1>This is Data {JSON.stringify(props.repo)}</h1>
+      <DashboardTable />
     </>
   );
 }

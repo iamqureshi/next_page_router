@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-const MONGODB_URI = process.env.NEXT_PUBLIC_MONGO_URI;
+const MONGODB_URI = process.env.NEXT_PUBLIC_MONGO_URI || "";
 
 if (!MONGODB_URI) {
   throw new Error('Please define the MONGODB_URI environment variable inside .env file');
@@ -7,7 +7,7 @@ if (!MONGODB_URI) {
 
 let cachedConnection: typeof mongoose | null = null;
 
-export const setupDB = async () => {
+export default async function setupDB(){
   if (cachedConnection) {
     console.log("Already Database connected!")
     return cachedConnection;

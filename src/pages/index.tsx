@@ -1,15 +1,17 @@
-import DashboardPage from "./components/Dashboard";
+import DashboardTable from "./components/Dashboard/DashboardTable/DashboardTable";
 
-export default function index({repo}:any) {
+export default function index(data: any) {
+  const result = data.data;
+
   return (
     <>
-      <DashboardPage repo={repo} />
+      <DashboardTable clients={result} />
     </>
   );
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/getClients");
-  const repo = await res.json();
-  return { props: { repo } };
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const data = await res.json();
+  return { props: { data } };
 };
